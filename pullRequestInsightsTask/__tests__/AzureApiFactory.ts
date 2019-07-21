@@ -1,8 +1,8 @@
-import { AzureApiFactory } from "../AzureApiFactory";
-import { EnvironmentConfigurations } from "../EnvironmentConfigurations";
+import { AzureApiFactory } from "../../src/AzureApiFactory";
+import { EnvironmentConfigurations } from "../../src/EnvironmentConfigurations";
 import sinon from "sinon";
-import { HostTypeError } from "../HostTypeError";
-import { PipelineData } from "../PipelineData";
+import { HostTypeError } from "../../src/HostTypeError";
+import { PipelineData } from "../../src/PipelineData";
 
 describe("AzureApiFactory Tests", () => {
     

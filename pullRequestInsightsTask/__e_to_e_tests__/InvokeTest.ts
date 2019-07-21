@@ -1,5 +1,5 @@
-import { PipelineData } from "../PipelineData";
-import { TaskInsights } from "../TaskInsights";
+import { PipelineData } from "../../src/PipelineData";
+import { TaskInsights } from "../../src/TaskInsights";
 import tl = require('azure-pipelines-task-lib/task');
 
 
