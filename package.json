@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack && npm run package:dev",
+    "build": "webpack && npm run package:dev && jest",
     "deploy": "webpack && npm run package:dev && npm run package:publish",
     "watch": "webpack --watch",
     "package:dev": "node ./commands/packageDev",
