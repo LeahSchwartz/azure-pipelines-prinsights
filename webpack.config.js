@@ -5,12 +5,7 @@ const mode = "development";
 const sourcemap = mode === "development";
 const DeployPlugin = require("./commands/deployPlugin").module;
 
-var copyPattern = [
-    {
-        from: "./src/index.ts",
-        to: "./"
-    }
-];
+var copyPattern = [];
 
 if (mode == "release") {
     copyPattern.push({

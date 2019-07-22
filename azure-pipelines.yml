@@ -2,7 +2,7 @@ trigger:
 - master
 variables: 
   taskSourceFolder: .\src
-  taskFolder: .\
+  taskFolder: C:\azure-pipelines-prinsights\src
 stages:  
 - stage: Build
   jobs:
