@@ -5,11 +5,11 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack && npm run package:dev",
+    "buildPreProd": "webpack && npm run package:preProd",
     "buildProd": "webpack && npm run package:prod",
     "deploy": "webpack && npm run package:dev && npm run package:publish",
     "watch": "webpack --watch",
-    "package:dev": "node ./commands/packageDev",
+    "package:preProd": "node ./commands/packagePreProd",
     "package:prod": "node ./commands/packageProd",
     "package:publish": "node ./commands/packagePublish",
     "dev:webpack": "webpack --watch",

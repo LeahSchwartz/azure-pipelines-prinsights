@@ -1,7 +1,8 @@
 trigger:
 - master
 variables: 
-  taskPath: .\src
+  taskSourceFolder: .\src
+  taskFolder: .\
 stages:  
 - stage: Build
   jobs:
@@ -13,18 +14,18 @@ stages:
     steps:
     - powershell: 
         npm install
-      workingDirectory: $(taskPath)
+      workingDirectory: $(taskSourceFolder)
       displayName: 'npm install'
     - powershell: 
-        Rename-Item -Path "$(taskPath)\task.$(version)" -NewName "task.json"
+        Rename-Item -Path "$(taskSourceFolder)\task.$(version)" -NewName "task.json"
       displayName: 'specify task.json'
-    - powershell: 
-        tsc
-      workingDirectory: $(taskPath)
-      displayName: 'compile'
+    # - powershell: 
+    #     tsc
+    #   workingDirectory: $(taskSourceFolder)
+    #   displayName: 'compile'
     - powershell:
         npm test
-      workingDirectory: $(taskPath)
+      workingDirectory: $(taskSourceFolder)
       displayName: 'test'  
     - task: PRInsights@0
       displayName: Pull Request Insights
@@ -33,21 +34,25 @@ stages:
         version: 'v0.6.x'
     # - powershell:
     #     Remove-Item './node_modules/fileset/test/fixtures/an (odd) filename.js' –recurse 
-    #   workingDirectory: $(taskPath)
+    #   workingDirectory: $(taskSourceFolder)
     #   displayName: 'Remove Bad Node File'
-    - task: PackageVSTSExtension@1
-      inputs:
-        rootFolder: "./"
-        patternManifest: "vss-extension-$(version).json"
-        outputPath: "./epsteam.PullRequestInsightsExtension.vsix"
-      displayName: Package Task
+    # - task: PackageVSTSExtension@1
+    #   inputs:
+    #     rootFolder: "./"
+    #     patternManifest: "vss-extension-$(version).json"
+    #     outputPath: "./epsteam.PullRequestInsightsExtension.vsix"
+    #   displayName: Package Task
+    - powershell:
+        npm run build$(version) 
+      workingDirectory: $(taskFolder)
+      displayName: 'Run build'
     - task: PublishExtension@1
       inputs:
         connectTo: "VsTeam"
         connectedServiceName: "Visual Studio Marketplace"
         fileType: "vsix"
         vsixFile: "./epsteam.PullRequestInsightsExtension.vsix"
-        rootFolder: "./"
+        rootFolder: taskFolder
         patternManifest: "vss-extension-$(version).json"
       displayName: Publish Task
   
