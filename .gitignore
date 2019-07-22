@@ -1,6 +1,5 @@
 node_modules/
 *.vsix
-*.js
 *.taskkey
 package-lock.json
 typings
