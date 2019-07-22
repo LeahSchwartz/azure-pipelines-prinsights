@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
-  "id": "PullRequestInsightsExtension",
-  "name": "Pull Request Insights Extension",
-  "version": "0.0.78",
+  "id": "PullRequestInsightsExtensionPP",
+  "name": "Pull Request Insights Extension Pre-Production",
+  "version": "0.0.79",
   "publisher": "epsteam",
   "targets": [
     {
@@ -16,7 +16,8 @@
   "scopes": [],
   "files": [
     {
-      "path": "pullRequestInsightsTask"
+      "path": "dist",
+      "addressable": true
     }
   ],
   "contributions": [
