@@ -104,8 +104,8 @@ export abstract class AbstractPipelineTaskRun {
   public ran(): boolean {
     return (
       this.hasCompleteStatus() &&
-      this.startTime != null &&
-      this.finishTime != null
+      !!this.startTime &&
+      !!this.finishTime
     );
   }
 
