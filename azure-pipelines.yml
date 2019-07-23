@@ -32,20 +32,16 @@ stages:
     - task: TfxInstaller@1
       inputs:
         version: 'v0.6.x'
-    # - powershell:
-    #     Remove-Item './node_modules/fileset/test/fixtures/an (odd) filename.js' –recurse 
-    #   workingDirectory: $(taskSourceFolder)
-    #   displayName: 'Remove Bad Node File'
-    # - task: PackageVSTSExtension@1
-    #   inputs:
-    #     rootFolder: "./"
-    #     patternManifest: "vss-extension-$(version).json"
-    #     outputPath: "./epsteam.PullRequestInsightsExtension.vsix"
-    #   displayName: Package Task
     - powershell:
-        npm run build$(version) 
-      workingDirectory: $(taskFolder)
-      displayName: 'Run build'
+        Remove-Item './node_modules/fileset/test/fixtures/an (odd) filename.js' –recurse 
+      workingDirectory: $(taskSourceFolder)
+      displayName: 'Remove Bad Node File'
+    - task: PackageVSTSExtension@1
+      inputs:
+        rootFolder: "./"
+        patternManifest: "vss-extension-$(version).json"
+        outputPath: "./epsteam.PullRequestInsightsExtension.vsix"
+      displayName: Package Task
     - task: PublishExtension@1
       inputs:
         connectTo: "VsTeam"

@@ -16,7 +16,7 @@
   "scopes": [],
   "files": [
     {
-      "path": "dist",
+      "path": "src",
       "addressable": true
     }
   ],
@@ -26,7 +26,7 @@
       "type": "ms.vss-distributed-task.task",
       "targets": ["ms.vss-distributed-task.tasks"],
       "properties": {
-        "name": "dist"
+        "name": "src"
       }
     }
   ]
