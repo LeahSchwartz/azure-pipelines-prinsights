@@ -19,10 +19,10 @@ stages:
     - powershell: 
         Rename-Item -Path "$(taskSourceFolder)\task.$(version)" -NewName "task.json"
       displayName: 'specify task.json'
-    # - powershell: 
-    #     tsc
-    #   workingDirectory: $(taskSourceFolder)
-    #   displayName: 'compile'
+    - powershell: 
+        tsc
+      workingDirectory: $(taskSourceFolder)
+      displayName: 'compile'
     - powershell:
         npm test
       workingDirectory: $(taskSourceFolder)
