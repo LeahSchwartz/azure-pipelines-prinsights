@@ -1,0 +1,22 @@
+{
+  "name": "pullrequestinsightstask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "buildPreProd": "tsc && npm run package:preProd",
+    "buildProd": "tsc && npm run package:prod",
+    "deploy": "tsc && npm run package:dev && npm run package:publish",
+    "package:preProd": "node ./commands/packagePreProd",
+    "package:prod": "node ./commands/packageProd",
+    "package:publish": "node ./commands/packagePublish"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-devops-node-api": "^8.0.0",
+    "azure-pipelines-task-lib": "^2.8.0",
+    "stats-lite": "^2.0.0"
+  }
+}
