@@ -23,5 +23,5 @@
   "longRunningMultiAgentLine": "<br><small>(Regressed on {0}/{1} agents)</small>",
   "durationWithRegressionFormat": "{0} [<span style='color:red'>+{1}</span>]",
   "durationRangeFormat": "{0} - <br>{1}",
-  "feedbackLine": "<small>*Please send your feedback to [EPS Team Channel](mailto:vscsepsteame@microsoft.com) if above insights are not helpful</small>"
+  "feedbackLine": "<small>*Please send your feedback to [EPS Team Channel](mailto:vscsepsteame@microsoft.com) if above insights are not helpful.</small>"
 }
